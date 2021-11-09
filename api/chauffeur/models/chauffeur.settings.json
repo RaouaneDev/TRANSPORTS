@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chauffeurs",
+  "info": {
+    "name": "chauffeur",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "telephone": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "clients": {
+      "collection": "client",
+      "via": "chauffeurs",
+      "dominant": true
+    },
+    "Depart": {
+      "type": "date"
+    },
+    "categories": {
+      "via": "chauffeurs",
+      "collection": "categorie"
+    }
+  }
+}
